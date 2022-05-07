@@ -4,14 +4,18 @@
  */
 package sample2;
 
+import com.sun.javafx.scene.layout.region.Margins;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
+import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -33,7 +37,6 @@ public class sample2Controller implements Initializable {
     private boolean operationOn = true;
     
     private double lasOperation = 0;
-    //private Object textFieldNumbers;
     
     /*
     * Se ingresan los valores de cada numero
@@ -52,7 +55,6 @@ public class sample2Controller implements Initializable {
             //manda a la funcion para calcular el resultado
             resultadoOperacion(event);
         }
-        
         
     }
     
@@ -93,7 +95,7 @@ public class sample2Controller implements Initializable {
     }
 
     /*
-    * 
+    * Obtiene el ultimo resultado obtenido
     */
     @FXML
     void getLasResult(ActionEvent event) {
@@ -104,6 +106,9 @@ public class sample2Controller implements Initializable {
 
     }
 
+    /*
+    * Obtiene el resultado al precionar "="
+    */
     @FXML
     void resultadoOperacion(ActionEvent event) {
         
@@ -114,12 +119,15 @@ public class sample2Controller implements Initializable {
             //evalua las operaciones, en caso de tener una "x" replazarlo por un "*" para la multiplicacion
             Object operation = engine.eval(textfieldResult.getText().replaceAll("x", "*"));
             resultadoFinal.setText("" + operation );// resultado se muestra en el TextField resultados
-            lasOperation = Double.parseDouble(resultadoFinal.getText());//guarda el resultado de la ultima operacion
+            lasOperation = Integer.parseInt(resultadoFinal.getText());//guarda el resultado de la ultima operacion
         } catch (ScriptException | ParserException e) {
             textfieldResult.setText("nan");
         }
     }
     
+    /*
+    * Cambia el signo del resultado al precionar el boton "+/-"
+    */
     @FXML
     void cambiarSigno(ActionEvent event) {
         
@@ -129,7 +137,171 @@ public class sample2Controller implements Initializable {
         
     }
     
+    /*
+    *===========================================================================
+    * V2
+    *===========================================================================
+    * Apartade de la segunda version
+    */
+    @FXML
+    private CheckBox optBin;
     
+    @FXML
+    private CheckBox optDecimal;
+
+    @FXML
+    private CheckBox optHex;
+
+    @FXML
+    private CheckBox optOcta;
+    
+    private int decimal = 0;
+    
+    /*
+    * Cambia de decimal a binario
+    */
+    @FXML
+    void sistemaBinario(ActionEvent event) {
+        
+        if (optBin.isSelected()) {
+            
+            if (resultadoFinal.getText().isEmpty()) {
+                decimal = Integer.parseInt(textfieldResult.getText());
+                String binario = convertidor(2);
+                //System.out.println(binario);
+                resultadoFinal.setText(binario);
+            }
+            else{
+                decimal = Integer.parseInt(resultadoFinal.getText());
+                convertidor(2);
+            }
+            
+        } else {
+            resultadoFinal.clear();
+            sistemaDecimal(event);
+            //resultadoFinal.setText("Hola perra");
+        }
+        
+    }
+    
+    /*
+    * Cambia a decimal 
+    */
+    @FXML
+    void sistemaDecimal(ActionEvent event) {
+        optDecimal.setSelected(true);
+        
+        if (optBin.isSelected()) {
+            
+            if (resultadoFinal.getText().isEmpty()) {
+                decimal = Integer.parseInt(textfieldResult.getText());
+                String binario = convertidor(2);
+                //System.out.println(binario);
+                resultadoFinal.setText(binario);
+            }
+            else{
+                decimal = Integer.parseInt(resultadoFinal.getText());
+                convertidor(2);
+            }
+            
+        } else {
+            resultadoFinal.clear();
+            sistemaDecimal(event);
+            //resultadoFinal.setText("Hola perra");
+        }
+    }
+
+    /*
+    * Cambia de decimal a hexadecimal
+    */
+    @FXML
+    void sistemaHexadecimal(ActionEvent event) {
+
+    }
+    
+    /*
+     * Agregar un valor hexadecimal, de la A a la F
+     */
+    @FXML
+    void addHexa(ActionEvent event) {
+
+    }
+    
+    /*
+    * Cambia de decimal a octal
+    */
+    @FXML
+    void sistemaOctal(ActionEvent event) {
+        Object p = new Object();
+        String str = "";
+        
+        try {
+            LinkedList<String> octal = new LinkedList<String>();
+            String[] bin;
+                    
+            if (resultadoFinal.getText().isEmpty()) {
+                decimal = Integer.parseInt(textfieldResult.getText());
+            }
+            else{
+                decimal = Integer.parseInt(resultadoFinal.getText());
+            }
+            
+            Vector<String> vec = new Vector<String>();
+            while (decimal>0) {
+                //int n = decimal%8;
+                
+                //octal.add(String.valueOf(decimal%8));
+                vec.add(String.valueOf(decimal%8));
+                decimal = decimal/8;
+                System.out.println(decimal);
+            }
+            
+            for (int i = octal.size(); i > 0; i--) {
+                //vec.add(octal.get(i-1));
+                str += vec.get(i-1);
+            }
+            
+            System.out.println(vec);
+            System.out.println(str);
+            
+            resultadoFinal.setText(str);
+            
+            
+        } catch (ParserException e) {
+            textfieldResult.setText("nan");
+        }
+    }
+    
+    private String convertidor(int systemNum){
+        //LinkedList<String> order = new LinkedList<String>(); 
+        Vector<String> order = new Vector<String>();
+        String str = "";
+        
+        try {
+            while (decimal>0) {            
+            //Guarda los residuos en la posicion 0
+            order.add(String.valueOf(decimal%systemNum));
+            //Asigna el nuevo resultado
+            decimal = decimal/systemNum;
+            System.out.println("decimal "+decimal);
+            }
+        
+            //Ordena el resultado ->
+            for (int i = order.size(); i > 0; i--) {
+                //ordena el resultado en la posicion 1
+                //order.get(1).add(order.get(0).get(i-1));
+            
+                str += order.get(i-1);
+                System.out.println(str);
+            }
+        } catch (Exception e) {
+            textfieldResult.setText("nan");
+        }
+        
+        
+        System.out.println(str);
+        return str;
+    }
     
     /**
      *
@@ -139,6 +311,7 @@ public class sample2Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        optDecimal.setSelected(true);
     }    
     
 }
