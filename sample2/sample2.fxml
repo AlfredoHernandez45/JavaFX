@@ -11,79 +11,79 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="494.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample2.sample2Controller">
+<AnchorPane id="AnchorPane" prefHeight="494.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculadora.Calculadora">
     <children>
             <AnchorPane id="Content" layoutX="6.0" minHeight="0.0" minWidth="0.0" prefHeight="494.0" prefWidth="397.0">
          <children>
                     <GridPane layoutX="23.0" layoutY="116.0" prefHeight="350.0" prefWidth="350.0">
                         <children>
-                            <Button fx:id="clear" mnemonicParsing="false" onAction="#cleanScreen" prefHeight="67.0" prefWidth="81.0" style="" stylesheets="@css/styleCleanButton.css" text="C" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <Button fx:id="clear" mnemonicParsing="false" onAction="#cleanScreen" prefHeight="67.0" prefWidth="81.0" style="" stylesheets="@../../../Sample2/src/sample2/css/styleCleanButton.css" text="C" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <tooltip>
                         <Tooltip text="Clean entry" />
                      </tooltip>
                   </Button>
-                            <Button fx:id="delet" mnemonicParsing="false" onAction="#delValue" prefHeight="68.0" prefWidth="79.0" stylesheets="@css/styleCleanButton.css" text="Del" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <Button fx:id="delet" mnemonicParsing="false" onAction="#delValue" prefHeight="68.0" prefWidth="79.0" stylesheets="@../../../Sample2/src/sample2/css/styleCleanButton.css" text="Del" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <tooltip>
                         <Tooltip text="Delete" />
                      </tooltip>
                   </Button>
-                            <Button fx:id="positivoNegativo" mnemonicParsing="false" onAction="#cambiarSigno" prefHeight="73.0" prefWidth="80.0" stylesheets="@css/styleOperationButton.css" text="+/-" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                            <Button fx:id="positivoNegativo" mnemonicParsing="false" onAction="#cambiarSigno" prefHeight="73.0" prefWidth="80.0" stylesheets="@../../../Sample2/src/sample2/css/styleOperationButton.css" text="+/-" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <tooltip>
                         <Tooltip text="Percentage" />
                      </tooltip>
                   </Button>
                             <Button fx:id="divicion" mnemonicParsing="false" onAction="#addOperation" prefHeight="67.0" prefWidth="77.0" text="/" GridPane.columnIndex="4" GridPane.rowIndex="1">
                                 <stylesheets>
-                                    <URL value="@css/styleOperationButton.css" />
-                                    <URL value="@css/styleOperationButton.css" />
+                                    <URL value="@../../../Sample2/src/sample2/css/styleOperationButton.css" />
+                                    <URL value="@../../../Sample2/src/sample2/css/styleOperationButton.css" />
                                 </stylesheets>
                      <tooltip>
                         <Tooltip text="Division" />
                      </tooltip>
                             </Button>
-                            <Button fx:id="seven" mnemonicParsing="false" onAction="#addValue" prefHeight="69.0" prefWidth="81.0" stylesheets="@css/styleSimpleButton.css" text="7" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                            <Button fx:id="eight" mnemonicParsing="false" onAction="#addValue" prefHeight="65.0" prefWidth="80.0" stylesheets="@css/styleSimpleButton.css" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                            <Button fx:id="nine" mnemonicParsing="false" onAction="#addValue" prefHeight="69.0" prefWidth="82.0" stylesheets="@css/styleSimpleButton.css" text="9" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                            <Button fx:id="multiplicacion" mnemonicParsing="false" onAction="#addOperation" prefHeight="70.0" prefWidth="79.0" stylesheets="@css/styleOperationButton.css" text="x" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                            <Button fx:id="seven" mnemonicParsing="false" onAction="#addValue" prefHeight="69.0" prefWidth="81.0" stylesheets="@../../../Sample2/src/sample2/css/styleSimpleButton.css" text="7" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            <Button fx:id="eight" mnemonicParsing="false" onAction="#addValue" prefHeight="65.0" prefWidth="80.0" stylesheets="@../../../Sample2/src/sample2/css/styleSimpleButton.css" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                            <Button fx:id="nine" mnemonicParsing="false" onAction="#addValue" prefHeight="69.0" prefWidth="82.0" stylesheets="@../../../Sample2/src/sample2/css/styleSimpleButton.css" text="9" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                            <Button fx:id="multiplicacion" mnemonicParsing="false" onAction="#addOperation" prefHeight="70.0" prefWidth="79.0" stylesheets="@../../../Sample2/src/sample2/css/styleOperationButton.css" text="x" GridPane.columnIndex="4" GridPane.rowIndex="2">
                      <tooltip>
                         <Tooltip text="Multiplication" />
                      </tooltip>
                   </Button>
-                            <Button fx:id="four" mnemonicParsing="false" onAction="#addValue" prefHeight="62.0" prefWidth="75.0" stylesheets="@css/styleSimpleButton.css" text="4" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                            <Button fx:id="five" mnemonicParsing="false" onAction="#addValue" prefHeight="63.0" prefWidth="72.0" stylesheets="@css/styleSimpleButton.css" text="5" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                            <Button fx:id="six" mnemonicParsing="false" onAction="#addValue" prefHeight="66.0" prefWidth="78.0" stylesheets="@css/styleSimpleButton.css" text="6" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                            <Button fx:id="resta" mnemonicParsing="false" onAction="#addOperation" prefHeight="70.0" prefWidth="77.0" stylesheets="@css/styleOperationButton.css" text="-" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                            <Button fx:id="four" mnemonicParsing="false" onAction="#addValue" prefHeight="62.0" prefWidth="75.0" stylesheets="@../../../Sample2/src/sample2/css/styleSimpleButton.css" text="4" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                            <Button fx:id="five" mnemonicParsing="false" onAction="#addValue" prefHeight="63.0" prefWidth="72.0" stylesheets="@../../../Sample2/src/sample2/css/styleSimpleButton.css" text="5" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                            <Button fx:id="six" mnemonicParsing="false" onAction="#addValue" prefHeight="66.0" prefWidth="78.0" stylesheets="@../../../Sample2/src/sample2/css/styleSimpleButton.css" text="6" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                            <Button fx:id="resta" mnemonicParsing="false" onAction="#addOperation" prefHeight="70.0" prefWidth="77.0" stylesheets="@../../../Sample2/src/sample2/css/styleOperationButton.css" text="-" GridPane.columnIndex="4" GridPane.rowIndex="3">
                      <tooltip>
                         <Tooltip text="Subtraction" />
                      </tooltip>
                   </Button>
-                            <Button fx:id="one" mnemonicParsing="false" onAction="#addValue" prefHeight="69.0" prefWidth="80.0" stylesheets="@css/styleSimpleButton.css" text="1" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                            <Button fx:id="two" mnemonicParsing="false" onAction="#addValue" prefHeight="67.0" prefWidth="77.0" stylesheets="@css/styleSimpleButton.css" text="2" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                            <Button fx:id="three" mnemonicParsing="false" onAction="#addValue" prefHeight="59.0" prefWidth="77.0" stylesheets="@css/styleSimpleButton.css" text="3" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                            <Button fx:id="suma" mnemonicParsing="false" onAction="#addOperation" prefHeight="69.0" prefWidth="77.0" stylesheets="@css/styleOperationButton.css" text="+" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                            <Button fx:id="one" mnemonicParsing="false" onAction="#addValue" prefHeight="69.0" prefWidth="80.0" stylesheets="@../../../Sample2/src/sample2/css/styleSimpleButton.css" text="1" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                            <Button fx:id="two" mnemonicParsing="false" onAction="#addValue" prefHeight="67.0" prefWidth="77.0" stylesheets="@../../../Sample2/src/sample2/css/styleSimpleButton.css" text="2" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                            <Button fx:id="three" mnemonicParsing="false" onAction="#addValue" prefHeight="59.0" prefWidth="77.0" stylesheets="@../../../Sample2/src/sample2/css/styleSimpleButton.css" text="3" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                            <Button fx:id="suma" mnemonicParsing="false" onAction="#addOperation" prefHeight="69.0" prefWidth="77.0" stylesheets="@../../../Sample2/src/sample2/css/styleOperationButton.css" text="+" GridPane.columnIndex="4" GridPane.rowIndex="4">
                      <tooltip>
                         <Tooltip text="Addition" />
                      </tooltip>
                   </Button>
-                            <Button fx:id="cero" mnemonicParsing="false" onAction="#addValue" prefHeight="71.0" prefWidth="82.0" stylesheets="@css/styleSimpleButton.css" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                            <Button fx:id="punto" mnemonicParsing="false" onAction="#addValue" prefHeight="67.0" prefWidth="74.0" stylesheets="@css/styleSimpleButton.css" text="." GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                            <Button fx:id="anterior" mnemonicParsing="false" onAction="#getLasResult" prefHeight="68.0" prefWidth="76.0" stylesheets="@css/styleANSButton.css" text="ANS" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                            <Button fx:id="cero" mnemonicParsing="false" onAction="#addValue" prefHeight="71.0" prefWidth="82.0" stylesheets="@../../../Sample2/src/sample2/css/styleSimpleButton.css" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                            <Button fx:id="punto" mnemonicParsing="false" onAction="#addValue" prefHeight="67.0" prefWidth="74.0" stylesheets="@../../../Sample2/src/sample2/css/styleSimpleButton.css" text="." GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                            <Button fx:id="anterior" mnemonicParsing="false" onAction="#getLasResult" prefHeight="68.0" prefWidth="76.0" stylesheets="@../../../Sample2/src/sample2/css/styleANSButton.css" text="ANS" GridPane.columnIndex="3" GridPane.rowIndex="5">
                      <tooltip>
                         <Tooltip text="Last result" />
                      </tooltip>
                   </Button>
-                            <Button fx:id="igualdad" mnemonicParsing="false" onAction="#resultadoOperacion" prefHeight="69.0" prefWidth="79.0" stylesheets="@css/styleOperationButton.css" text="=" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                            <Button fx:id="igualdad" mnemonicParsing="false" onAction="#resultadoOperacion" prefHeight="69.0" prefWidth="79.0" stylesheets="@../../../Sample2/src/sample2/css/styleOperationButton.css" text="=" GridPane.columnIndex="4" GridPane.rowIndex="5">
                      <tooltip>
                         <Tooltip text="Get result" />
                      </tooltip>
                   </Button>
-                  <Button fx:id="a" mnemonicParsing="false" onAction="#addHexa" prefHeight="64.0" prefWidth="72.0" text="A" />
-                  <Button fx:id="b" mnemonicParsing="false" onAction="#addHexa" prefHeight="66.0" prefWidth="77.0" text="B" GridPane.rowIndex="1" />
-                  <Button fx:id="c" mnemonicParsing="false" onAction="#addHexa" prefHeight="63.0" prefWidth="78.0" text="C" GridPane.rowIndex="2" />
-                  <Button fx:id="d" mnemonicParsing="false" onAction="#addHexa" prefHeight="74.0" prefWidth="90.0" text="D" GridPane.rowIndex="3" />
-                  <Button fx:id="e" mnemonicParsing="false" onAction="#addHexa" prefHeight="68.0" prefWidth="73.0" text="E" GridPane.rowIndex="4" />
-                  <Button fx:id="f" mnemonicParsing="false" onAction="#addHexa" prefHeight="61.0" prefWidth="73.0" text="F" GridPane.rowIndex="5" />
-                  <CheckBox fx:id="optDecimal" mnemonicParsing="false" onAction="#sistemaDecimal" text="DEC" GridPane.columnIndex="1">
+                  <Button fx:id="a" disable="true" mnemonicParsing="false" onAction="#addHexa" prefHeight="64.0" prefWidth="72.0" text="A" />
+                  <Button fx:id="b" disable="true" mnemonicParsing="false" onAction="#addHexa" prefHeight="66.0" prefWidth="77.0" text="B" GridPane.rowIndex="1" />
+                  <Button fx:id="c" disable="true" mnemonicParsing="false" onAction="#addHexa" prefHeight="63.0" prefWidth="78.0" text="C" GridPane.rowIndex="2" />
+                  <Button fx:id="d" disable="true" mnemonicParsing="false" onAction="#addHexa" prefHeight="74.0" prefWidth="90.0" text="D" GridPane.rowIndex="3" />
+                  <Button fx:id="e" disable="true" mnemonicParsing="false" onAction="#addHexa" prefHeight="68.0" prefWidth="73.0" text="E" GridPane.rowIndex="4" />
+                  <Button fx:id="f" disable="true" mnemonicParsing="false" onAction="#addHexa" prefHeight="61.0" prefWidth="73.0" text="F" GridPane.rowIndex="5" />
+                  <CheckBox fx:id="optDecimal" mnemonicParsing="false" onAction="#sistemaDecimal" selected="true" text="DEC" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
